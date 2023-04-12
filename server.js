@@ -2,6 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 
+const { mongoose } = require('./config/connection');
+
 app.get ('/', (req,res) => {
     res.send('default route')
 })
