@@ -4,8 +4,11 @@ const app = express();
 
 const { mongoose } = require('./config/connection');
 
+app.set('view engine', 'ejs');
+
+
 app.get ('/', (req,res) => {
-    res.send('hello world')
+    res.render('home.ejs')
 })
 
 
