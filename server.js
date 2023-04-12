@@ -5,7 +5,7 @@ const app = express();
 const { mongoose } = require('./config/connection');
 
 app.get ('/', (req,res) => {
-    res.send('default route')
+    res.send('hello world')
 })
 
 
