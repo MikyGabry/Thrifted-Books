@@ -21,13 +21,11 @@ const booksSchema = new mongoose.Schema(
         //enum will allow us to manage the drop-down in our views by defining a set of the property so that only these properties are accepted by that field
         genre:{
             type: String,
-            enum: ['Fiction', 'Non-Fiction'],
             required: true
         },
 
         condition:{
             type: String,
-            enum: ['Brand New', 'Like New', 'May have coffee stains'],
             required: true
         },
 

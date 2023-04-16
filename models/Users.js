@@ -19,6 +19,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please enter your username"],
         unique: [ true, "That username already exists"]
+    },
+
+    seller: {
+        type: Boolean, 
+        required: [true]
     }
 } // close Schema
 ,
