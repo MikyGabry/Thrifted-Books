@@ -1,6 +1,5 @@
 const mongoose = require ('mongoose');
-
-// const user = require('./Users.js');
+const user = require('./Users.js');
 
 const Books = mongoose.model('book, booksSchema'); //mongoose.model(<mongodb collection name>, our Schema) is the general default and it creates a collection inside of MongoDB that is named from the first arugment, books here. It applies the schema above to that collection. 
 
