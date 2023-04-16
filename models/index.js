@@ -4,6 +4,6 @@ require('../config/connection');
 
 module.exports = {
     Books: require ('./Books'),
-    Users: require ('./Users')
+    User: require ('./Users')
 
 }

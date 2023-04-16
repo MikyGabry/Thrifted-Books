@@ -11,16 +11,16 @@ It creates a variable books that's set to the value of the books key in the expo
 const express = require ('express');
 const router = express.Router();
 
-const {Books, Users} = require('../models') 
+const {Books} = require('../models') 
 
-const seededData = [  //title, author, genre, condition, description, price, user  : Q: Do we obtain seeded data from MongoDB?
+const seededBooksData = [  //title, author, genre, condition, description, price, user  : Q: Do we obtain seeded data from MongoDB?
     {
         title: "Jane Eyre",
         author: "Charlotte Bronte",
         price: "16.99",
-        genre: "",
-        condition: "",
-        description: "",
+        genre: "Fiction",
+        condition: "New",
+        description: "Novel",
         user: ""
 
     },
@@ -28,9 +28,9 @@ const seededData = [  //title, author, genre, condition, description, price, use
         title: "Hunger Games",
         author: "Suzanne Collins",
         price: "20.99",
-        genre: "",
-        condition: "",
-        description: "",
+        genre: "Faction",
+        condition: "New",
+        description: "Novel",
         user: ""
 
     },
@@ -38,41 +38,50 @@ const seededData = [  //title, author, genre, condition, description, price, use
         title: "The Wife",
         author: "Alafair Burke",
         price: "19.99",
-        genre: "",
-        condition: "",
-        description: "",
+        genre: "Faction",
+        condition: "New",
+        description: "Novel",
         user: ""
 
-    },
-
-
+    }
 ]
 
-router.get('', async (req, res, next) =>{
-    try{
-        console.log (req.session)
-        let myBooks;
-        console.lofe(req.query);
-        if (req.query.search) {
-            myBooks = await Books.find({author: req.query.search})
-            console.log(myBooks);
-        } else{
-            myBooks = await Books.find({});
-            console.log(myBooks);
-        }
+// router.get('', async (req, res, next) =>{
+//     try{
+//         console.log (req.session)
+//         let myBooks;
+//         console.lofe(req.query);
+//         if (req.query.search) {
+//             myBooks = await Books.find({author: req.query.search})
+//             console.log(myBooks);
+//         } else{
+//             myBooks = await Books.find({});
+//             console.log(myBooks);
+//         }
 
-        res.render('books.index', {books: myBooks})
+//         res.render('books.index', {books: myBooks})
+//     }
+
+//     catch(err){
+//         //if there is an error, it will fo to the catch block
+//         console.log(err);
+//         next();
+//     }
+
+// })
+
+router.get('/seeds', async (req, res, next) => {
+    try {
+        await Books.deleteMany({});
+        await Books.insertMany(seededBooksData);
+        res.redirect('/')
+    }catch(err) {
+        console.log(err)
+        next()
     }
-
-    catch(err){
-        //if there is an error, it will fo to the catch block
-        console.log(err);
-        next();
-    }
-
 })
 
-
+module.exports = router;
 
 
 
