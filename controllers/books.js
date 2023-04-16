@@ -15,12 +15,37 @@ const {Books, Users} = require('../models')
 
 const seededData = [  //title, author, genre, condition, description, price, user  : Q: Do we obtain seeded data from MongoDB?
     {
-        title: "",
-        author: "",
-        price: "",
-        user: "",
+        title: "Jane Eyre",
+        author: "Charlotte Bronte",
+        price: "16.99",
+        genre: "",
+        condition: "",
+        description: "",
+        user: ""
 
-    }
+    },
+    {
+        title: "Hunger Games",
+        author: "Suzanne Collins",
+        price: "20.99",
+        genre: "",
+        condition: "",
+        description: "",
+        user: ""
+
+    },
+    {
+        title: "The Wife",
+        author: "Alafair Burke",
+        price: "19.99",
+        genre: "",
+        condition: "",
+        description: "",
+        user: ""
+
+    },
+
+
 ]
 
 router.get('', async (req, res, next) =>{
