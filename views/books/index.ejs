@@ -1,0 +1,8 @@
+<%- include('../partials/header.ejs', {name: "All books"}) %>
+
+<h1>Here is a list of all our books!</h1>
+<% for(let i = 0; i < books.length; i++){ %>
+    <a href = 'books/<%= books[i]._id %>'>
+        <h2>Title: <%= books [i].title</h2>
+    </a>
+}
