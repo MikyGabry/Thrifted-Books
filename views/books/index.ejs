@@ -5,4 +5,12 @@
     <a href = 'books/<%= books[i]._id %>'>
         <h2>Title: <%= books [i].title</h2>
     </a>
-}
+
+    <h3>Author: <%= books[i].author %> </h3>
+    <h3>Genre: <%= books[i].genre %> </h3>
+    <h3>Condition: <%= books[i].condition %> </h3>
+    <h3>Description: <%= books[i].description %> </h3>
+    <h3>Price: <%= books[i].price %> </h3>
+<hr>
+<% } %>
+<%- include('../partials/footer.ejs') %>
