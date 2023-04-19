@@ -58,8 +58,8 @@ router.get('', async (req, res, next) =>{
 })
 
 router.get('/new', (req, res) => {
-    // res.render('books/new.ejs')
-    res.send(`Here are all the books`)
+    res.render('books/new.ejs')
+    // res.send(`Here are all the books`)
 })
 
 router.get('/seeds', async (req, res, next) => {
@@ -84,8 +84,19 @@ router.get('/:id/edit', async (req, res, next) => {
     }
 })
 
+router.get('/:id', async (req, res, next) => {
+    try{
+        const myBook = await Books.findById(req.params.id)
+        res.render('books/show.ejs', {book: myBook})
+    } catch(err) {
+        console.log(err)
+        next()
+    }
+})
+
 router.put('/:id', async (req, res, next) => {
     try {
+        console.log(req.params.id)
         const updatedBook = await Books.findByIdAndUpdate(req.params.id, req.body);
         res.render('books/edit.ejs', {book: updatedBook})
     } catch(err) {
