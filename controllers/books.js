@@ -46,29 +46,16 @@ const seededBooksData = [  //title, author, genre, condition, description, price
     }
 ]
 
-// router.get('', async (req, res, next) =>{
-//     try{
-//         console.log (req.session)
-//         let myBooks;
-//         console.lofe(req.query);
-//         if (req.query.search) {
-//             myBooks = await Books.find({author: req.query.search})
-//             console.log(myBooks);
-//         } else{
-//             myBooks = await Books.find({});
-//             console.log(myBooks);
-//         }
-
-//         res.render('books.index', {books: myBooks})
-//     }
-
-//     catch(err){
-//         //if there is an error, it will fo to the catch block
-//         console.log(err);
-//         next();
-//     }
-
-// })
+router.get('', async (req, res, next) =>{
+    try{
+        const myBooks = await Books.find({})
+        res.render('books/index', {books: myBooks})
+    } catch(err) {
+        //if there is an error, it will fo to the catch block
+        console.log(err);
+        next();
+    }
+})
 
 router.get('/new', (req, res) => {
     // res.render('books/new.ejs')
@@ -97,10 +84,20 @@ router.get('/:id/edit', async (req, res, next) => {
     }
 })
 
-router.put('/id', async (req, res, next) => {
+router.put('/:id', async (req, res, next) => {
     try {
         const updatedBook = await Books.findByIdAndUpdate(req.params.id, req.body);
         res.render('books/edit.ejs', {book: updatedBook})
+    } catch(err) {
+        console.log(err);
+        next();
+    }
+})
+
+router.get('/:id/delete', async (req, res, next) => {
+    try {
+        const bookForTrash = await Books.findById(req.params.id);
+        res.render('books/delete.ejs', {book: bookForTrash})
     } catch(err) {
         console.log(err);
         next();
