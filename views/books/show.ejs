@@ -1,0 +1,13 @@
+<%- include('../partials/header.ejs', {name: "Show page of " + book.title}) %>
+
+    <h1>Title: <%= book.title %> </h1>
+    <h2>Author: <%= book.author %> </h2>
+    <h2>Genre: <%= book.genre %> </h2>
+    <h2>Condition: <%= book.condition %> </h2>
+    <h2>Description: <%= book.description %> </h2>
+    <h2>Price: <%= book.price %> </h2>
+    <br>
+    <a href="/books/<%= book._id %>/edit"><button>Edit <%= book.title %></button></a>
+    <a href="/books/<%= book._id %>/delete"><button>Delete <%= book.title %></button></a>
+</body>
+</html>
