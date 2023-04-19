@@ -13,7 +13,7 @@ app.get ('/', (req,res) => {
     res.render('home.ejs')
 })
 
-app.use('', booksController);
+app.use('/books', booksController);
 
 
 app.listen(process.env.PORT, () =>
