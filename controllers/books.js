@@ -70,6 +70,11 @@ const seededBooksData = [  //title, author, genre, condition, description, price
 
 // })
 
+router.get('/new', (req, res) => {
+    // res.render('books/new.ejs')
+    res.send(`Here are all the books`)
+})
+
 router.get('/seeds', async (req, res, next) => {
     try {
         await Books.deleteMany({});
@@ -78,6 +83,37 @@ router.get('/seeds', async (req, res, next) => {
     }catch(err) {
         console.log(err)
         next()
+    }
+})
+
+router.get('/:id/edit', async (req, res, next) => {
+    try {
+        const bookToBeUpdated = await Books.findById(req.params.id);
+        console.log(bookToBeUpdated);
+        res.render('books/edit.ejs', {book: bookToBeUpdated})
+    } catch(err) {
+        console.log(err);
+        next()
+    }
+})
+
+router.put('/id', async (req, res, next) => {
+    try {
+        const updatedBook = await Books.findByIdAndUpdate(req.params.id, req.body);
+        res.render('books/edit.ejs', {book: updatedBook})
+    } catch(err) {
+        console.log(err);
+        next();
+    }
+})
+
+router.delete('/:id', async (req, res) => {
+    try {
+        const deletedItem = await Books.findByIdAndDelete(req.params.id);
+        res.redirect('/books');
+    } catch(err) {
+        console.log(err);
+        next();
     }
 })
 
