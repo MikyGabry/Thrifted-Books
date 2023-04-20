@@ -93,6 +93,16 @@ router.get('/:id', async (req, res, next) => {
         next()
     }
 })
+router.post('', async (req, res, next) => {
+    try {
+        const newBook = await Books.create(req.body);
+        console.log(newBook);
+        res.redirect('/books')
+    } catch(err) {
+        console.log(err);
+        next();
+    }
+})
 
 router.put('/:id', async (req, res, next) => {
     try {
