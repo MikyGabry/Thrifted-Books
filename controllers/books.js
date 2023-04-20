@@ -108,7 +108,7 @@ router.put('/:id', async (req, res, next) => {
     try {
         console.log(req.params.id)
         const updatedBook = await Books.findByIdAndUpdate(req.params.id, req.body);
-        res.render('books/edit.ejs', {book: updatedBook})
+        res.redirect('/books')
     } catch(err) {
         console.log(err);
         next();
