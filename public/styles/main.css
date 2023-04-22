@@ -13,7 +13,7 @@
 }
 
 body {
-    background-color: rgb(211, 251, 251);
+    background-color: #f3eee8;
 }
 
 .button1 {
@@ -75,4 +75,12 @@ label {
     color: green;
     font-family: fantasy;
     font-weight: 900;
+}
+
+h4 {
+    margin-bottom: -5px;
+}
+
+.homePage {
+    min-height: 100%;
 }
