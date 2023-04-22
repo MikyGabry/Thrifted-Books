@@ -1,0 +1,78 @@
+.header {
+    color: rgb(98, 43, 226);
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: larger;
+}
+
+.header:hover {
+    color: cornflowerblue;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: larger;
+}
+
+body {
+    background-color: rgb(211, 251, 251);
+}
+
+.button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #008CBA;
+    transition-duration: 0.5s;
+    cursor: pointer;
+    border-radius: 8px;
+}
+  
+.button1:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+.button2 {
+    background-color: white;
+    color: black;
+    border: 2px solid red;
+    transition-duration: 0.5s;
+    cursor: pointer;
+    border-radius: 8px;
+}
+  
+.button2:hover {
+    background-color: red;
+    color: white;
+}
+
+.button3 {
+    background-color: white;
+    color: black;
+    border: 2px solid green;
+    transition-duration: 0.5s;
+    cursor: pointer;
+    border-radius: 8px;
+}
+  
+.button3:hover {
+    background-color: green;
+    color: white;
+}
+
+input {
+    border-radius: 8px;
+    color: gray;
+    border: cornflowerblue;
+    border-bottom-style: outset;
+    text-align: center;
+    font-family: inherit;
+}
+
+input:focus {
+    color: chocolate;
+}
+
+label {
+    color: green;
+    font-family: fantasy;
+    font-weight: 900;
+}
